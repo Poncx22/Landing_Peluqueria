@@ -1,0 +1,415 @@
+/* ==========================================================================
+   BeautyStyle / Salon - ESTILOS CSS
+   ========================================================================== */
+
+/* 1. Design Tokens & CSS Variables */
+:root {
+  /* Color Palette */
+  --color-background: #0a0a0c;
+  --color-surface: #16130d;
+  --color-surface-dim: #16130d;
+  --color-surface-bright: #3c3931;
+  --color-surface-lowest: #100e08;
+  --color-surface-low: #1e1b15;
+  --color-surface-high: #2d2a23;
+  --color-surface-highest: #38342d;
+
+  --color-primary: #ffe185;
+  --color-primary-container: #e3c565;
+  --color-primary-fixed: #ffe081;
+  --color-primary-dark: #c4a04f;
+
+  --color-on-surface: #e9e2d7;
+  --color-on-surface-variant: #cfc6b2;
+  --color-outline-variant: #4c4637;
+  --color-outline: #98907e;
+
+  /* Typography */
+  --font-serif: 'Bodoni Moda', serif;
+  --font-sans: 'Hanken Grotesk', sans-serif;
+
+  /* Layout Spacing */
+  --container-max: 1280px;
+  --gutter: 24px;
+  --margin-edge: 32px;
+  --section-gap: 120px;
+}
+
+/* 2. Base Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-background);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 3. Typography Styles */
+.font-display-lg {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.font-headline-md {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 4vw, 32px);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.font-body-lg {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.font-body-sm {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.font-label-caps {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 4. Glassmorphism & Visual Components */
+.glass-panel {
+  background: rgba(34, 31, 25, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0px;
+  /* Sharp edges */
+}
+
+.glow-hover {
+  transition: all 0.4s ease;
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 30px rgba(227, 197, 101, 0.15);
+  border-color: rgba(227, 197, 101, 0.35);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: linear-gradient(90deg, var(--color-primary-container), var(--color-primary-dark));
+  color: #0A0A0C;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 0px;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: rgba(34, 31, 25, 0.45);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 225, 133, 0.3);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 0px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--color-primary);
+}
+
+/* 5. Layout Helpers */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--margin-edge);
+  padding-right: var(--margin-edge);
+}
+
+.section {
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+
+/* Header & Nav */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(22, 19, 13, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px var(--margin-edge);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-link {
+  color: rgba(233, 226, 215, 0.8);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+}
+
+/* Mobile Nav Menu */
+.mobile-menu-btn {
+  display: none;
+  color: var(--color-primary);
+}
+
+.mobile-nav-drawer {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 12, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 225, 133, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  gap: 24px;
+  transform: translateY(-150%);
+  transition: transform 0.4s ease;
+  z-index: 99;
+}
+
+.service-price {
+  background: rgb(10, 10, 12);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 225, 133, 0.25);
+  padding: 10px;
+  padding-right: 10px;
+
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mobile-nav-drawer.open {
+  transform: translateY(0);
+}
+
+/* Form Inputs (Obsidian & Gold Style) */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(10, 10, 12, 0.7);
+  border: 1px solid rgba(255, 225, 133, 0.25);
+  border-radius: 0px;
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 15px rgba(227, 197, 101, 0.2);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* FAQ Accordion */
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 0;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--color-on-surface);
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+  color: var(--color-primary);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, margin-top 0.3s ease;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  margin-top: 12px;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+}
+
+/* Notification toast for form submission */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: rgba(22, 19, 13, 0.95);
+  border: 1px solid var(--color-primary);
+  color: var(--color-on-surface);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+  box-shadow: 0 0 25px rgba(227, 197, 101, 0.25);
+  transform: translateY(150%);
+  transition: transform 0.4s ease;
+}
+
+.toast-notification.show {
+  transform: translateY(0);
+}
+
+/* Responsive Rules */
+@media (max-width: 768px) {
+  :root {
+    --margin-edge: 20px;
+    --gutter: 16px;
+    --section-gap: 64px;
+  }
+
+  .nav-links,
+  .nav-btn-desktop {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+}

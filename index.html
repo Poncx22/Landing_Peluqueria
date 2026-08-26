@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>BEAUTY STYLE | Studio & Salon</title>
+  <meta name="description"
+    content="Cortes de autor, tratamientos exclusivos y estilismo de alto nivel en un ambiente de lujo absoluto. Reserva tu cita en BeautyStyle.">
+
+
+  <!-- Google Fonts: Bodoni Moda & Hanken Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* Specific page component overrides & helpers */
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10, 10, 12, 0.4) 0%, rgba(10, 10, 12, 0.7) 60%, #0a0a0c 100%);
+      z-index: 1;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--gutter);
+    }
+
+    .service-card {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 240px;
+      cursor: pointer;
+    }
+
+    .service-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+
+    .service-price {
+      color: var(--color-primary);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+    }
+
+    .service-footer {
+      margin-top: 24px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-card:hover .service-footer {
+      opacity: 1;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (min-width: 992px) {
+      .location-grid {
+        grid-template-columns: 5fr 7fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <img src="assets/logo.jpeg" alt="Beauty Style Logo" style="height: 40px; width: 40px; object-fit: contain;">
+        <a href="#inicio" class="font-display-lg"
+          style="font-size: 24px; color: var(--color-primary); letter-spacing: -0.05em; text-transform: uppercase;">BEAUTY
+          STYLE</a>
+      </div>
+
+      <div class="nav-links">
+        <a href="#inicio" class="nav-link active">Inicio</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#ubicacion" class="nav-link">Ubicación</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </div>
+
+      <div class="nav-btn-desktop">
+        <a href="#" class="btn-primary" data-whatsapp>Reservar Ahora</a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menú">
+        <span class="material-symbols-outlined" style="font-size: 32px;">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Menu General / Mobile PC -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <a href="#inicio" class="nav-link">Inicio</a>
+    <a href="#servicios" class="nav-link">Servicios</a>
+    <a href="#ubicacion" class="nav-link">Ubicación</a>
+    <a href="#contacto" class="nav-link">Contacto</a>
+    <a href="#" class="btn-primary" style="text-align: center; margin-top: 16px;" data-whatsapp>Reservar Ahora por
+      WhatsApp</a>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="inicio"
+      style="position: relative; min-height: 85vh; display: flex; align-items: center; padding-top: 120px; overflow: hidden;">
+      <div class="hero-bg-overlay"></div>
+      <img src="assets/local.jpeg" alt="BeautyStyle Salon Interior" class="hero-img">
+
+      <div class="container" style="position: relative; z-index: 2;">
+        <div style="max-width: 800px; display: flex; flex-direction: column; align-items: flex-start; gap: 32px;">
+          <div class="glass-panel"
+            style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 50px;">
+            <span style="color: var(--color-primary);">⭐</span>
+            <span class="font-label-caps" style="color: var(--color-on-surface);">· Experiencia Premium</span>
+          </div>
+
+          <h1 class="font-display-lg" style="color: var(--color-on-surface);">
+            Eleva tu estilo al <br><span class="text-gradient" style="font-style: italic;">siguiente nivel</span>.
+          </h1>
+
+          <p class="font-body-lg" style="color: var(--color-on-surface-variant); max-width: 600px;">
+            Cortes de autor y tratamientos exclusivos en un ambiente de lujo absoluto. Curamos tu identidad a través del
+            arte capilar.
+          </p>
+
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; width: 100%;">
+            <a href="#" class="btn-primary" data-whatsapp>
+              <span class="material-symbols-outlined" style="font-size: 20px;">chat</span>
+              Agendar por WhatsApp
+            </a>
+            <a href="#servicios" class="btn-secondary">
+              Ver Servicios
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="section" style="background-color: var(--color-background);">
+      <div class="container">
+        <div
+          style="display: flex; flex-direction: column; margin-bottom: 64px; border-bottom: 1px solid var(--color-outline-variant); padding-bottom: 48px;">
+          <h2 class="font-headline-md" style="color: var(--color-primary); margin-bottom: 16px;">Servicios</h2>
+          <p class="font-body-lg"
+            style="color: var(--color-on-surface-variant); max-width: 650px; margin-bottom: 12px;">
+            Servicios diseñados meticulosamente para realzar tu belleza natural con técnicas de vanguardia y productos
+            premium.
+          </p>
+          <span class="font-label-caps" style="color: var(--color-primary); opacity: 0.9; font-size: 11px;">
+            * Los precios de los servicios de cabello pueden variar según el largo y volumen.
+          </span>
+        </div>
+
+        <div class="services-grid" style="margin-top: 40px;">
+          <!-- Service 1: Cortes de Cabello -->
+          <div class="glass-panel service-card glow-hover" data-whatsapp data-service-name="Cortes de Cabello">
+            <div>
+              <div class="service-header">
+                <h3 class="font-headline-md" style="color: var(--color-on-surface);">Cortes de Cabello</h3>
+                <span class="service-price">Desde COP 20.000</span>
+              </div>
+              <p class="font-body-sm" style="color: var(--color-on-surface-variant); margin-bottom: 16px;">
+                Cortes de autor, estilo clásico y vanguardista adaptados a tu rostro e identidad.
+              </p>
+              <ul
+                style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 12px;"
+                class="font-body-sm">
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Corte Clásico Caballero</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$30.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Corte Dama (Solo Puntas)</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$20.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Corte Dama Normal / Estilo</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$30.000</span></li>
+              </ul>
+            </div>
+            <div class="service-footer">
+              <span class="font-label-caps" style="color: var(--color-on-surface);">Agendar Corte</span>
+              <span class="material-symbols-outlined" style="color: var(--color-primary);">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Service 2: Blower & Cepillado -->
+          <div class="glass-panel service-card glow-hover" data-whatsapp data-service-name="Blower & Cepillado">
+            <div>
+              <div class="service-header">
+                <h3 class="font-headline-md" style="color: var(--color-on-surface);">Blower & Cepillado</h3>
+                <span class="service-price">Desde COP 25.000</span>
+              </div>
+              <p class="font-body-sm" style="color: var(--color-on-surface-variant); margin-bottom: 16px;">
+                Modelado y secado profesional para darle brillo, volumen y suavidad sedosa a tu cabello.
+              </p>
+              <ul
+                style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 12px;"
+                class="font-body-sm">
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Cabello Corto</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$25.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Cabello Mediano</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$35.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Cabello Largo</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$50.000</span></li>
+              </ul>
+            </div>
+            <div class="service-footer">
+              <span class="font-label-caps" style="color: var(--color-on-surface);">Agendar Blower</span>
+              <span class="material-symbols-outlined" style="color: var(--color-primary);">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Service 3: Keratina & Alisados -->
+          <div class="glass-panel service-card glow-hover" data-whatsapp data-service-name="Keratina & Alisados">
+            <div>
+              <div class="service-header">
+                <h3 class="font-headline-md" style="color: var(--color-on-surface);">Keratina & Alisados</h3>
+                <span class="service-price">Desde COP 80.000</span>
+              </div>
+              <p class="font-body-sm" style="color: var(--color-on-surface-variant); margin-bottom: 16px;">
+                Tratamiento orgánico reconstructor y alisado progresivo de alta nutrición.
+              </p>
+              <ul
+                style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 12px;"
+                class="font-body-sm">
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Cabello Corto</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$80.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Cabello Mediano</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$120.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Cabello Largo / Abundante</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$160.000</span></li>
+              </ul>
+            </div>
+            <div class="service-footer">
+              <span class="font-label-caps" style="color: var(--color-on-surface);">Agendar Keratina</span>
+              <span class="material-symbols-outlined" style="color: var(--color-primary);">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Service 4: Tinte, Color & Mechas -->
+          <div class="glass-panel service-card glow-hover" data-whatsapp data-service-name="Tinte & Mechas">
+            <div>
+              <div class="service-header">
+                <h3 class="font-headline-md" style="color: var(--color-on-surface);">Tinte & Mechas</h3>
+                <span class="service-price">Desde COP 60.000</span>
+              </div>
+              <p class="font-body-sm" style="color: var(--color-on-surface-variant); margin-bottom: 16px;">
+                Coloración de autor, balayage, mechas personalizadas e iluminaciones con protección de fibra capilar.
+              </p>
+              <ul
+                style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 12px;"
+                class="font-body-sm">
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Tinte Tono a Tono / Raíz</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$60.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Mechas / Babylights</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$90.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Balayage / Mechas Globales</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$140.000</span></li>
+              </ul>
+            </div>
+            <div class="service-footer">
+              <span class="font-label-caps" style="color: var(--color-on-surface);">Agendar Color</span>
+              <span class="material-symbols-outlined" style="color: var(--color-primary);">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Service 5: Uñas, Manicure, Press ON & Dipping -->
+          <div class="glass-panel service-card glow-hover" data-whatsapp data-service-name="Manicure & Uñas Especiales">
+            <div>
+              <div class="service-header">
+                <h3 class="font-headline-md" style="color: var(--color-on-surface);">Uñas & Estilo</h3>
+                <span class="service-price">Desde COP 25.000</span>
+              </div>
+              <p class="font-body-sm" style="color: var(--color-on-surface-variant); margin-bottom: 16px;">
+                Cuidado de uñas spa, esmaltado semipermanente, acrílicas, sistema Press ON y Dipping Powder.
+              </p>
+              <ul
+                style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 12px;"
+                class="font-body-sm">
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Manicure Tradicional</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$25.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Manicure Semipermanente</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$50.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Uñas Press ON</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$70.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Uñas Acrílicas</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$80.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Dipping Powder / Mantenimiento</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$65.000</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 6: Mechas y decoloracion -->
+          <div class="glass-panel service-card glow-hover" data-whatsapp data-service-name="Mechas y decoloracion">
+            <div>
+              <div class="service-header">
+                <h3 class="font-headline-md" style="color: var(--color-on-surface);">Mechas y decoloracion</h3>
+                <span class="service-price">Desde COP 60.000</span>
+              </div>
+              <p class="font-body-sm" style="color: var(--color-on-surface-variant); margin-bottom: 16px;">
+                Servicios de mechas y decoloración con productos de alta calidad.
+              </p>
+              <ul
+                style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 12px;"
+                class="font-body-sm">
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Mechoncitos</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$70.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Mechas y Babylights</span><span
+                    style="color: var(--color-primary); font-weight: 600;">150.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Uñas Press ON</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$70.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Uñas Acrílicas</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$80.000</span></li>
+                <li style="display: flex; justify-content: space-between;"><span
+                    style="color: var(--color-on-surface-variant);">Dipping Powder / Mantenimiento</span><span
+                    style="color: var(--color-primary); font-weight: 600;">$65.000</span></li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="service-footer">
+            <span class="font-label-caps" style="color: var(--color-on-surface);">Agendar Uñas</span>
+            <span class="material-symbols-outlined" style="color: var(--color-primary);">arrow_forward</span>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="ubicacion" class="section" style="background-color: #0a0700;">
+      <div class="container">
+        <div class="location-grid">
+          <div style="display: flex; flex-direction: column; gap: 32px;">
+            <div>
+              <h2 class="font-headline-md" style="color: var(--color-primary); margin-bottom: 16px;">Visítanos</h2>
+              <p class="font-body-lg" style="color: var(--color-on-surface-variant);">
+                Un espacio diseñado para tu confort y transformación. Agenda tu cita y vive la experiencia BeautyStyle.
+              </p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+              <div style="display: flex; align-items: flex-start; gap: 16px;">
+                <span class="material-symbols-outlined"
+                  style="color: var(--color-primary); margin-top: 2px;">location_on</span>
+                <div>
+                  <h4 class="font-label-caps" style="color: var(--color-on-surface); margin-bottom: 4px;">Ubicación</h4>
+                  <p class="font-body-sm" style="color: var(--color-on-surface-variant);">Av.Venezuela, Centro
+                    Historico, centro1 - Local 223</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 16px;">
+                <span class="material-symbols-outlined"
+                  style="color: var(--color-primary); margin-top: 2px;">schedule</span>
+                <div>
+                  <h4 class="font-label-caps" style="color: var(--color-on-surface); margin-bottom: 4px;">Horario de
+                    Atención</h4>
+                  <p class="font-body-sm" style="color: var(--color-on-surface-variant);">Lunes a Sábado: 8:00 AM - 7:00
+                    PM</p>
+                </div>
+              </div>
+
+              <div id="contacto" style="display: flex; align-items: flex-start; gap: 16px;">
+                <span class="material-symbols-outlined"
+                  style="color: var(--color-primary); margin-top: 2px;">call</span>
+                <div>
+                  <h4 class="font-label-caps" style="color: var(--color-on-surface); margin-bottom: 4px;">Reservas
+                    Directas</h4>
+                  <p class="font-body-sm" style="color: var(--color-on-surface-variant);">WhatsApp: +57 312 293 6807</p>
+                  <p class="font-body-sm" style="color: var(--color-on-surface-variant);">Correo:
+                    yosenava.estilista@gmail.com</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 8px;">
+              <a href="#" class="btn-primary" data-whatsapp>
+                <span class="material-symbols-outlined" style="font-size: 20px;">chat</span>
+                Reservar Cita Ahora
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive Review Form -->
+          <div class="glass-panel glow-hover" style="padding: 32px; display: flex; flex-direction: column; gap: 24px;">
+            <div>
+              <h3 class="font-headline-md" style="color: var(--color-on-surface); margin-bottom: 8px;">Déjanos Tu Reseña
+                :)
+              </h3>
+              <p class="font-body-sm" style="color: var(--color-on-surface-variant);">
+                Tu opinión nos ayuda a mantener nuestra experiencia en el más alto nivel de excelencia.
+              </p>
+            </div>
+
+            <form id="review-form" style="display: flex; flex-direction: column; gap: 16px;">
+              <div class="form-group">
+                <label for="review-email" class="form-label">Tu Correo Electrónico</label>
+                <input type="email" id="review-email" class="form-input" placeholder="tucorreo@gmail.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="review-text" class="form-label">Tu Reseña o Comentario</label>
+                <textarea id="review-text" class="form-textarea" placeholder="Cuéntanos cómo fue tu experiencia..."
+                  required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="margin-top: 8px; width: 100%;">
+                <span class="material-symbols-outlined" style="font-size: 18px;">send</span>
+                Enviar Reseña
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="section"
+      style="background-color: var(--color-background); border-top: 1px solid var(--color-outline-variant);">
+      <div class="container" style="max-width: 800px;">
+        <div style="text-align: center; margin-bottom: 48px;">
+          <h2 class="font-headline-md" style="color: var(--color-primary); margin-bottom: 12px;">Preguntas Frecuentes
+          </h2>
+          <p class="font-body-lg" style="color: var(--color-on-surface-variant);">
+            Resolvemos tus dudas principales para brindarte una atención impecable.
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+          <!-- FAQ 1 -->
+          <div class="faq-item active">
+            <div class="faq-question">
+              <span>¿Es necesario agendar cita con anticipación?</span>
+              <span class="material-symbols-outlined faq-icon">expand_more</span>
+            </div>
+            <div class="faq-answer">
+              Recomendamos agendar previamente por WhatsApp para garantizar tu turno a la hora deseada y brindarte una
+              atención personalizada de lujo sin tiempos de espera.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>¿Cuánto tiempo dura el tratamiento de Keratina?</span>
+              <span class="material-symbols-outlined faq-icon">expand_more</span>
+            </div>
+            <div class="faq-answer">
+              El procedimiento toma entre 2 y 3 horas según el largo y volumen de tu cabello. Sus efectos de alisado y
+              nutrición duran de 3 a 5 meses con los cuidados posteriores adecuados.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>¿Qué medios de pago reciben en el local?</span>
+              <span class="material-symbols-outlined faq-icon">expand_more</span>
+            </div>
+            <div class="faq-answer">
+              Aceptamos pagos en efectivo, transferencias Nequi, Bancolombia, Daviplata y tarjetas de débito/crédito.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>¿Cuál es la diferencia entre uñas Press ON y Semipermanente?</span>
+              <span class="material-symbols-outlined faq-icon">expand_more</span>
+            </div>
+            <div class="faq-answer">
+              El esmaltado semipermanente se aplica sobre tu uña natural con secado en lámpara UV/LED, mientras que el
+              sistema Press ON incluye tips presurizados a medida para mayor largo de forma instantánea.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toast Notification Component -->
+    <div id="toast-notification" class="toast-notification">
+      <span class="material-symbols-outlined" style="color: var(--color-primary);">check_circle</span>
+      <div>
+        <h5 class="font-label-caps" style="color: var(--color-primary); margin-bottom: 2px;">¡Gracias por tu reseña!
+        </h5>
+        <p class="font-body-sm" style="color: var(--color-on-surface-variant); font-size: 13px;">Tu comentario ha sido
+          enviado exitosamente.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer
+    style="background-color: var(--color-background); border-top: 1px solid var(--color-outline-variant); padding: 48px 0;">
+    <div class="container"
+      style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+      <div>
+        <h3 class="font-display-lg" style="font-size: 20px; color: var(--color-primary); text-transform: uppercase;">
+          BEAUTY STYLE</h3>
+        <p class="font-body-sm" style="color: var(--color-on-surface-variant); margin-top: 4px;">Studio & Hair Care
+        </p>
+      </div>
+      <p class="font-label-caps" style="color: var(--color-outline);">© 2026 BeautyStyle. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>
